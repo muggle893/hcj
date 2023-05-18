@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+       // 变量声明和使用
+        var num = 3;
+        console.log(num);
+
+        num = 30;
+        console.log(num);
+        
+        // var name = prompt("请输入姓名：");
+        // var age = prompt("请输入年龄：");
+        // var sex = prompt("请输入性别：");
+        // alert(name + "\n" + age + "\n" + sex);
+
+        //number类型
+        var tmp = 33;
+        console.log(typeof(tmp))
+
+        //string类型
+        var str = "abc";
+        console.log(typeof(str));
+        console.log(str.length);
+
+        //字符串拼接
+        console.log("abc" + 3);
+        console.log("I " + "love" + " you!");
+
+        //布尔类型，在运算时会把true看成1，把false看成0
+        console.log(true);
+        console.log(false);
+
+        //undifined类型
+        var age;
+        console.log(age);
+        console.log(age + "3");
+
+        //null
+        age = null;
+        console.log("age=" + age);
+
+        //大部分算数运算符和java中的一样, ==会进行隐式类型转换，===不会进行隐式类型转换
+        var val = "10";
+        console.log("val == 10->" + (val == 10));
+        console.log("val === 10->" + (val === 10));
+
+        //if和else的使用
+        if (parseInt("3") == 3) {
+            console.log(true);
+        } else {
+            console.log(false);
+        }
+
+        //判断一个数是不是奇数
+        // var num = prompt("请输入一个数");
+        // if (parseInt(num) % 2 == 0) {
+        //     alert(num + "是偶数");
+        // } else {
+        //     alert(num + "是奇数");
+
+        // }
+
+        //三目/三元表达式
+        console.log("3" == 3 ? true : false);
+
+
+        //循环
+        var i = 1;
+        var num = 1;
+        while (i <= 10) {
+            num *= i;
+            i++;
+        }
+        console.log(num);
+
+
+    </script>
+
+
+
+
+    <!--输入输出-->
+    <!-- <script>
+        var name = prompt("请输入你的名字：");
+        console.log("这是一条日志信息");
+    </script> -->
+</body>
+</html>

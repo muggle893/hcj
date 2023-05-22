@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环，数组，函数，对象</title>
+</head>
+<body>
+
+    <input type="button" value="加" onclick="add(3, 4)">
+
+    <script>
+    //for循环
+    for (var i = 0; i < 5; i++) {
+        console.log(i);
+    }
+
+    //for of 
+    var arr = ['a', false, 'b', 33, 22];
+
+    for (var item of arr) {
+        console.log(item);
+    }
+
+    //创建数组的几种方式
+    //1.new Array()
+    var array = new Array();
+    
+    //2.直接用字面量创建
+    array = [1, 2, 3];
+
+    //增
+    array.push('a');
+    array.push('b');
+    array.push('c');
+    
+    //删
+    array.splice(0, 1);
+    console.log(array[0]);
+
+    //删最前面的元素
+    array.shift();
+    console.log(array[0]);
+
+    //删最后面的元素
+    array.pop();
+
+    //改
+    array[0] = 'na';
+    console.log(array[0]);
+
+    //函数的声明
+    function add(a, b) {
+        alert("调用了求和函数 a + b = " + (a + b));
+        return a + b;
+    }
+
+    //js中没有类这一说法，只有对象这一说法，js中万物也是皆对象
+    var obj = {
+        name : "小红",
+        age : 22,
+        sex : "female",
+        sayHello : function() {
+            alert("hello");
+        }
+    }
+    obj.sayHello();
+    </script>
+    
+</body>
+</html>

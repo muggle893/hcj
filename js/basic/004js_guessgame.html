@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>猜数字游戏，普通实现和jQuery实现</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div>
+        <span>请输入1-10之间的数字：</span><input id="input_num" type="text"><br/>
+        <input type="button" value="查看结果" onclick="checkResultJQuery()">
+        <div id="output_div"></div>
+    </div>
+
+    <script>
+
+        function checkResultJQuery() {
+            //1.生成一个随机数
+            var ranNum = parseInt(Math.random() * 10 + 1);
+
+            //2.获取输入框中的值
+            var input = jQuery("#input_num").val();
+            var msg;
+
+            //3.判断是否相等
+            if (ranNum == input) {
+                msg = "<h4>恭喜你，猜对了!</h4>";
+            } else {
+                msg = "<h4>猜错了，再猜一次...</h4>";
+            }
+
+            //4.现实到div中
+            jQuery("#output_div").html(msg);
+        }
+
+
+        function checkResult() {
+            //1.生成一个随机数
+            var ranNum = parseInt(Math.random() * 10 + 1);
+
+            //2.获取输入框中的值
+            var input = document.getElementById("input_num").value;
+            var msg;
+
+            //3.判断是否相等，并显示到div中
+            if (ranNum == input) {
+                msg = "<h4>恭喜你，猜对了!</h4>";
+                document.getElementById("output_div").innerHTML = msg;
+            } else {
+                msg = "<h4>猜错了，再猜一次...</h4>";
+                document.getElementById("output_div").innerHTML = msg;
+            }
+
+        }
+    </script>
+</body>
+</html>

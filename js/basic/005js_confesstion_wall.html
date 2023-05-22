@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表白墙</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div style="width: 100%;text-align: center;">
+        <h2>表白墙</h2><br/>
+        <span>谁：</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="srcName"><br/>
+        <span>对谁：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="destName"><br/>
+        <span>说什么：</span>&nbsp;&nbsp;<input id="content"><br/><br/>
+        <button type="botton" value="提交" style="width:100px; height: 20ox;" onclick="showResult()">提交</button>
+
+        <div id="showDiv"></div>
+    </div>
+
+    <script>
+        function showResult() {
+            var srcName = jQuery("#srcName").val();
+            var destName = jQuery("#destName").val();
+            var content = jQuery("#content").val();
+
+            //1.校验
+            if (srcName.trim() == "") {
+                alert("请输入谁");
+                jQuery("#srcName").focus();
+                return;
+            }
+
+            if (destName.trim() == "") {
+                alert("请输入对谁");
+                jQuery("#destName").focus();
+            }
+
+            if (content.trim() == "") {
+                alert("请输入表白内容");
+                jQuery("#content").focus();
+            }
+            //2.拼接
+            var msg = srcName + "对" + destName + "说了" + content;
+            //3.显示
+            jQuery("#showDiv").append(msg + "<br>");
+
+            //4.清空   
+            jQuery("#srcName").val("");
+            jQuery("#destName").val("");
+            jQuery("#content").val("");
+
+        }
+    </script>
+</body>
+</html>

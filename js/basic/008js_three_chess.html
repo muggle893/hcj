@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三子棋</title>
+    <script src="jQuery.min.js"></script>
+
+    <style type="text/css">
+        button {
+            width:133px;
+            height: 133px;
+            font-size:40px;
+        }
+    </style>
+
+</head>
+<body>
+    <table border="1px" cellspacing="0" style="width:400px; height:400px; font-size: 50px;" >
+        <thead></thead>
+
+        <tbody>
+            <!--第一行-->
+            <tr>
+                <td ><button id="0-0" onclick="play(0, 0)"></button></td>
+                <td ><button id="0-1" onclick="play(0, 1)"></button></td>
+                <td ><button id="0-2" onclick="play(0, 2)"></button></td>
+            </tr>
+
+
+            <!--第二行-->
+            <tr>
+                <td ><button id="1-0" onclick="play(1, 0)"></button></td>
+                <td ><button id="1-1" onclick="play(1, 1)"></button></td>
+                <td ><button id="1-2" onclick="play(1, 2)"></button></td>
+            </tr>
+
+
+            <!--第三行-->
+            <tr>
+                <td ><button id="2-0" onclick="play(2, 0)"></button></td>
+                <td ><button id="2-1" onclick="play(2, 1)"></button></td>
+                <td ><button id="2-2" onclick="play(2, 2)"></button></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <span id="player1">玩家1的棋子：x</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="player2">玩家2的棋子：o</span>
+    <br/><br/>
+    <input style="width:400px; height:20px;" type="button" value="重新开始" onclick="restart()">
+    <div id="result_div"></div>
+
+
+    <script>
+
+        //玩家
+        var player1 = "1";
+        var player2 = "2";
+        var player = player1;
+        var player1Icon = "x";
+        var player2Icon = "o";
+        //棋盘数组
+        var board = [];
+        for (var i = 0; i < 3; i++) {
+            board[i] = [];
+        }
+
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                var id = i + "-" + j;
+                board[i][j] = jQuery("#" + id);
+            }
+        }
+
+        function play(row, col) {
+            //1.得到需要响应的按钮
+            var btn = board[row][col];
+        
+            //2.设置棋子, 更新玩家
+            if (btn.text() == "") {
+                if (player == player1) {
+                    btn.text(player1Icon);
+                } else {
+                    btn.text(player2Icon);
+                }
+
+                if (player == player1) {
+                    player = player2;
+                } else {
+                    player = player1;
+                }
+            }
+            judgeGameOver();
+        }
+
+        //判断游戏是否结束函数
+        function judgeGameOver() {
+            //1.行判断，如果有玩家赢就显示结果
+            for (var i = 0; i < 3; i++) {
+                var flag = 0;
+                var sum = 0;
+                for (var j = 0; j < 3; j++) {
+                    if (board[i][j].text() != "" && flag == 0) {
+                        flag = board[i][j].text();
+                        sum += 1;
+                    } else if (board[i][j].text() != "" && flag != 0) {
+                        if (board[i][j].text() == flag) {
+                            sum += 1;
+                        } else {
+                            break;
+                        }
+                    } else if (board[i][j].text() == "") {
+                        break;
+                    }
+                }
+
+                if (sum == 3) {
+                    showResult(flag);
+                    return;
+                }
+            }
+
+            //2.列判断
+            for (var i = 0; i < 3; i++) {
+                var flag = 0;
+                var sum = 0;
+                for (var j = 0; j < 3; j++) {
+                    if (board[j][i].text() != "" && flag == 0) {
+                        flag = board[j][i].text();
+                        sum += 1;
+                    } else if (board[j][i].text() != "" && flag != 0) {
+                        if (board[j][i].text() == flag) {
+                            sum += 1;
+                        } else {
+                            break;
+                        }
+                    } else if (board[j][i].text() == "") {
+                        break;
+                    }
+                }
+
+                if (sum == 3) {
+                    showResult(flag);
+                    return;
+                }
+            }
+
+            //3.左对角线判断
+            var i = 0;
+            var j = 0;
+            var flag = 0;
+            var sum = 0;
+            while (i < 3 && j < 3) {
+                if (board[i][j].text() != "" && flag == 0) {
+                    flag = board[i][j].text();
+                    sum += 1;
+                } else if (board[i][j].text() != "" && flag != 0) {
+                    if (board[i][j].text() == flag) {
+                        sum += 1;
+                    } else {
+                        break;
+                    }
+                } else if (board[i][j].text() == "") {
+                    break;
+                }
+                i++;
+                j++;
+            }
+            if (sum == 3) {
+               showResult(flag);
+               return;
+            }
+
+            //4.右对角线判断
+            i = 0;
+            j = 2;
+            flag = 0;
+            sum = 0;
+            while (i < 3 && j >= 0) {
+                if (board[i][j].text() != "" && flag == 0) {
+                    flag = board[i][j].text();
+                    sum += 1;
+                } else if (board[i][j].text() != "" && flag != 0) {
+                    if (board[i][j].text() == flag) {
+                        sum += 1;
+                    } else {
+                        break;
+                    }
+                } else if (board[i][j].text() == "") {
+                    break;
+                }
+                i++;
+                j--;
+            }
+            if (sum == 3) {
+               showResult(flag);
+               return;
+            }
+        }
+
+        //显示结果
+        function showResult(flag) {
+            if (flag == "x") {
+                jQuery("#result_div").html("<h3>玩家1获胜</h3>");
+            } else {
+                jQuery("#result_div").html("<h3>玩家2获胜</h3>");
+            }
+        }
+
+        
+        function  restart() {
+            //清空棋盘
+            for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                    board[i][j].text("");
+                }
+            }
+
+            //清空结果
+            jQuery("#result_div").text("");
+        }
+        
+    </script>
+</body>
+</html>

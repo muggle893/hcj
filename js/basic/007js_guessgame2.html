@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div>
+        <input id="reset_game" type="button" value="重新开始一局游戏" onclick="resetGame()"> <br/>
+        请输入要猜的数字1-100: <input id="number_text" type="text" width="20px" heigth="20px"> 
+                              <input type="button" value="猜" onclick="startGame()"><br/>
+
+        已经猜的次数:&nbsp;&nbsp;<span id="total_guess">0</span><br/>
+        结果:&nbsp;&nbsp;<span id="result"></span>
+    </div>
+
+    <script>
+        var count = 0;
+        var randNum = Math.floor(Math.random() * 100 + 1);
+        function resetGame() {
+            //1.把要猜数字的文本框清空s
+            jQuery("#number_text").val("");
+
+            //2.把已经猜的次数设置为0
+            jQuery("#total_guess").text("0");
+
+            //3.把结果清空
+            jQuery("#result").text("");
+
+            //4.count设置为0
+            count = 0;
+
+            //5.重新生成随机数
+            randNum = Math.floor(Math.random() * 100 + 1);
+
+            //6.把光标移动到输入框中，升级体验感
+            jQuery("#number_text").focus();
+        }
+
+        function startGame() {
+
+            //1.拿到用户输入的数字，判断，并给出提示。
+            var textObj = jQuery("#number_text");
+            var resultObj = jQuery("#result");
+            var totalObj = jQuery("#total_guess");
+            var inputNum = parseInt(textObj.val());
+            
+            if (inputNum == randNum) {
+                resultObj.text("对了");
+            } else if (inputNum > randNum) {
+                resultObj.text("高了");
+            } else {
+                resultObj.text("低了");
+            }
+
+            //2.猜的次数+1
+            count++;
+            totalObj.text(count);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/* 取消浏览器的默认设置 */
+* {
+    padding:0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.board {
+    /* 设置宽高 */
+    height: 500px;
+    width:500px;
+    
+    /* 加边框 */
+    border:5px black solid;
+    align-content: center;
+
+    /* 让棋盘居中 */
+    margin: 0 auto;
+}
+
+.board .row_div {
+    /* 设置大小 */
+    height: calc(100% / 3);
+
+    /* 设置流式布局 */
+    display: flex;
+}
+
+.board .row_div .black_div{
+    /* 设置大小 */
+    width: calc(100% / 3);
+    height: 100%;
+    background-color:black;
+}
+.board .row_div .white_div{
+    /* 设置大小 */
+    width: calc(100% / 3);
+    height: 100%;
+    background-color:white;
+}

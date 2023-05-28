@@ -1,0 +1,50 @@
+/* 取消浏览器的默认设置 */
+* {
+    padding:0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height:100%;
+}
+
+.light {
+    /* 设置宽和高 */
+    width: 200px;
+    height: 600px;
+    background-color: gray;
+
+    /* 水平居中 */
+    margin: 0 auto;
+
+    /* 限制红路灯的位置 */
+    padding:  20px 20px;
+}
+
+/* 三个红绿灯共有的属性 */
+.light .l {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+
+/* 设置三个灯的颜色 */
+#red-light {
+    background-color: red;
+}
+
+#green-light {
+    background-color: green;
+
+}
+
+#yello-light {
+    background-color: yellow;
+}

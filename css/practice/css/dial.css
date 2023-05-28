@@ -1,0 +1,41 @@
+/* 取消浏览器的默认设置 */
+* {
+    padding:0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height:100%;
+}
+
+.dial {
+    /* 设置电话盘的大小 */
+    width: 600px;
+    height: 100px;
+    
+    /* 设置全部字体的大小 */
+    font-size: 16px;
+
+    /* 文字居中 */
+    text-align: center;
+}
+
+.dial .one td {
+    color: red;
+    text-decoration:underline;
+}
+
+.dial .two td {
+    color: green;
+    text-decoration: line-through;
+}
+
+.dial .three td {
+    color: blue;
+    font-weight: bold;
+}

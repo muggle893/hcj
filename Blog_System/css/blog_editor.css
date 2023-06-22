@@ -1,0 +1,47 @@
+.blog-editor-container {
+    /* 设置宽高 */
+    width: 1000px;
+    height: calc(100% - 50px);
+
+    /* 居中 */
+    margin: 0 auto;
+}
+
+.blog-editor-container form {
+    height: 100%;
+}
+
+.blog-editor-container .title {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title-text{
+    width: 900px;
+    height: 40px;
+    border-radius: 5px;
+    text-indent: 20px;
+    font-size: 18px;
+    border: none;
+} 
+
+#title-submit {
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: orange;
+    color: white;
+    border: none;
+}
+
+#title-submit:hover {
+    background-color: grey;
+    transition: 0.5s;
+}
+
+#editor {
+    border-radius: 10px;
+    opacity: 80%;
+}

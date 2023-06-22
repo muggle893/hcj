@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>博客列表页</title>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog_list.css">
 </head>
 <body>
     <!--导航-->
@@ -20,10 +21,42 @@
     <!-- 中间博客列表 -->
     <div class="container">
         <div class="leftcontainer">
-            <img id="pic" src="image/dog.jpg" alt="头像">
-            <span id="name_span">比特xxx</span>
+            <!--这个div用来表示整个用户信息-->
+            <div class="card">
+                <!--用户的头像-->
+                <img src="image/dog.jpg" alt="头像">
+
+                <!--用户名-->
+                <h3>至尊宝</h3>
+
+                <!--github地址-->
+                <a href="https://www.github.com">github地址</a>
+
+                <!--统计信息-->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+            
         </div>
         <div class="rightcontainer">
+            <div class="blog">
+                <div class="title">我的第一篇博客</div>
+                <div class="date">2020-10-7 13:30:23</div>
+                <div class="desc">从今天起，我要敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque odit harum vitae, inventore incidunt animi quam. Hic molestiae doloribus quibusdam omnis, sint sapiente, praesentium ratione animi at aliquam vel ipsum?</div>
+                <a href="">查看全文&gt;&gt;</a>
+            </div>
+            <div class="blog">
+                <div class="title">我的第一篇博客</div>
+                <div class="date">2020-10-7 13:30:23</div>
+                <div class="desc">从今天起，我要敲代码. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque odit harum vitae, inventore incidunt animi quam. Hic molestiae doloribus quibusdam omnis, sint sapiente, praesentium ratione animi at aliquam vel ipsum?</div>
+                <a href="">查看全文&gt;&gt;</a>
+            </div>
         </div>
 
     </div>

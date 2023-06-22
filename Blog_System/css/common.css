@@ -1,0 +1,138 @@
+
+/*使浏览器默认的样式失效*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+/*设置背景图片和大小*/
+body {
+    height:100%;
+    background-image: url("../image/test1.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/*设置导航布局*/
+.nav {
+    display: flex;
+    align-items: center;
+
+    /* 设置背景颜色，并且半透明 */
+    background-color: rgba(23, 79, 91, 0.5);
+}
+
+
+/* 设置导航中图片的大小 */
+.nav img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+/* 设置超链接样式 */
+.nav a {
+    /* 去掉下划线 */
+    text-decoration: none;
+
+    /* 分隔之间的超链接 */
+    padding-right: 20px;
+
+    /* 设置字体颜色 */
+    color: white;
+}
+
+/* 把导航栏中的超链接挤到右边去 */
+.nav .title {
+    margin-right: 1050px;
+    color: white;
+}
+
+/* 设置博客列表样式 */
+.container {
+    width:1000px;
+    /* 设置上下外间距为0，左右外间距为auto */
+    margin: 0 auto;
+    height:calc(100% - 40px);
+    /* background-color: black; */
+
+    /* 弹性布局 */
+    display: flex;
+    
+    align-items:flex-start;
+
+}
+
+/* 设置leftcontainer */
+.leftcontainer {
+    /* 大小 */
+    width: 200px;
+    height: 100%;
+    margin-right: 5px;
+}
+
+
+/*设置个人信息表*/
+.card {
+    /* 背景颜色和透明度 */
+    background-color:rgba(255, 255, 255, 0.8);
+
+    /*让内容不紧贴*/
+    padding: 30px;
+
+    /* 设置圆角 */
+    border-radius: 10px;
+}
+
+/*设置图片*/
+.card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+}
+
+/*设置用户名样式*/
+.card h3 {
+    text-align: center;
+    padding: 10px;
+}
+
+/*设置github地址*/
+.card a {
+    display: block;
+    text-decoration: none;
+    color: gray;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/*统计表*/
+.card .counter {
+    display: flex;
+    justify-content:space-around;
+}
+
+/* 设置rightcontainer */
+.rightcontainer {
+    /* 大小 */
+    width:795px;
+    height: 100%;
+
+    /* 背景颜色和透明度 */
+    background-color:rgba(255, 255, 255, 0.8);
+
+    /* 设置圆角 */
+    border-radius: 10px;
+
+    padding: 30px;
+
+    overflow: auto;
+}
